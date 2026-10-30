@@ -12,3 +12,7 @@ Agent responsibilities define task ownership, not additional permissions. Apply 
 ## Delegation
 
 Give each delegated task a defined objective, scope, allowed inputs and actions, and expected evidence. Keep authority with the role or user that holds it. Review delegated output before integration, and do not use delegation to bypass permissions, escalation, or validation.
+
+## Editorial assignments
+
+Reuse Codex or a bounded Local LLM assignment as Writer (draft), Editor (readability and author voice), or Technical Reviewer (evidence and correctness). These are media-independent responsibilities, not new execution agents or permissions. Assign Editor and Technical Reviewer independently of the Writer and record who checked what. Follow [editorial policy](../policies/editorial.md); keep provider operations in the target repository.

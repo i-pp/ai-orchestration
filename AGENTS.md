@@ -3,3 +3,5 @@
 This repository owns the canonical AI development orchestration policies. Read [`docs/ai/orchestration.md`](docs/ai/orchestration.md) for architecture and operating principles, and [`docs/ai/policies.md`](docs/ai/policies.md) before policy-sensitive work.
 
 Keep runtime implementation details in `agent-orchestrator`. Do not duplicate canonical rules; link to their source. Follow the applicable instructions, user scope, and available permissions.
+
+For technical articles, read [policies/editorial.md](policies/editorial.md) and [skills/technical-writing/SKILL.md](skills/technical-writing/SKILL.md). Keep media-specific delivery rules in their owning repositories.

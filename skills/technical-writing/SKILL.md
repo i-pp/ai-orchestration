@@ -1,0 +1,24 @@
+---
+name: technical-writing
+description: Develop or revise evidence-based technical articles through authoring, independent technical review and editing; use across publication media without inventing the author's experience.
+---
+
+# Technical writing
+
+Read [editorial policy](../../policies/editorial.md), [execution policies](../../docs/ai/policies.md) and existing [roles](../../agents/README.md). Load any repository-specific publishing skill only for format, preview, Git and delivery rules. Record the exact policy/skill Git revision and file hashes actually read; a link alone is not a loaded policy.
+
+## Workflow
+
+1. **Evidence.** Identify the author, reader, problem, source topic IDs and evidence hashes. Separate observations, reports, hypotheses and opinions. Use authorized material only; do not collect unrelated private writing. Note which author's actions can support first person. Preserve raw evidence.
+2. **Angle and structure.** Decide what the reader can learn from this particular investigation. Sketch a short path from situation and motivation through the obstacle, discoveries, attempted responses and remaining uncertainty. Adapt the structure to the evidence rather than filling a template.
+3. **Draft.** Let a Writer produce the intended-language narrative. Ground the author's voice in actual supplied or authorized writing examples; if no representative published prose is available, say so in the review record and follow the user's stated preferences. Never turn an agent's experiment into the author's personal act.
+4. **Technical verification.** Give a separate Technical Reviewer the draft, source references and commands. Check attribution, values, scope, reproducibility, failure explanations and unsupported causal claims. Keep later experiments separately sourced and dated. Resolve factual blockers before preparing delivery.
+5. **Editing.** Have an Editor read it as a reader: is the opening understandable, the investigation easy to follow and the voice natural? Remove report-like framing, stock transitions and needless repetition without deleting material uncertainty. Return concrete before/after examples and reasons, not only lint scores.
+6. **Polish.** Re-read the whole article in its publication language. Preserve raw/edited versions and a diff; flag number, quote, source and limitation changes for human review. Record tool names, pinned versions, commands and actual outcomes. Unavailable tools stay NOT_RUN; human editing does not imply tool execution or waive an existing gate.
+7. **Publication preparation.** Use the medium's skill to validate title/body rendering, frontmatter, links, preview, dedicated branch and draft PR. Report technical and editorial findings separately, exact artifact/commit identity, unresolved items and requested decisions. Require explicit human approval before merge or publication.
+
+Reuse the existing Codex/Local LLM roles with bounded assignments as Writer, Editor and Technical Reviewer. Do not install a new agent configuration merely to label these responsibilities. When delegation is unavailable, record a self-review as such and keep independent review pending.
+
+## Handoff
+
+Provide the draft and diff, source/claim map, evidence for first-person passages, independent editorial and technical findings, preview/validation results, and remaining delivery holds. Keep sensitive raw logs and operational credentials outside Git. Do not claim that a skill is globally installed merely because this repository contains its source.
