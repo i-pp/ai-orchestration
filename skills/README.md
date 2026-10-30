@@ -11,3 +11,5 @@ Skills are reusable, task-specific procedures. They support policies and agent w
 - Do not include secrets, credentials, private endpoints, or machine-specific assumptions. Keep runtime implementation instructions in `agent-orchestrator`.
 
 [technical-writing](technical-writing/SKILL.md) owns the shared evidence-to-publication-preparation workflow. Media repositories supply their own publishing skills and verify the pinned shared revision they read.
+
+[article-editor](article-editor/SKILL.md) owns local mechanical lint, editorial/voice references, severity dispositions and bounded independent review within technical-writing.

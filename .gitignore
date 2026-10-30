@@ -9,3 +9,9 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+**/node_modules/
+**/.tools/
+__pycache__/
+*.pyc
+.editorial-runs/
