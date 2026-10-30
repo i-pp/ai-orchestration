@@ -11,7 +11,7 @@ Read [candidate review](references/candidates.md) before adding an external styl
 
 ## Bounded review
 
-Follow Draft → Mechanical Lint → Editorial → Technical → Targeted Revision → Final Verification → Ready. Run `python3 scripts/check.py ARTICLE --lang ja|en --output REPORT`; see [local tools](references/tools.md). This command checks prose locally and never sends it to an API. No automatic fix is applied. Record findings against the exact article hash.
+Follow Draft → Mechanical Lint → Editorial → Technical → Targeted Revision → Final Verification → Ready. Run `python3 scripts/check.py ARTICLE --lang ja|en --output REPORT`; see [local tools](references/tools.md). For an authorized Japanese sanitized copy, add `--noslop --sanitized-sha256 EXACT_SHA256` when the approved local CLI is available. English records noslop as NOT_APPLICABLE. A matching hash binds the copy; it does not itself authorize data use or prove confidentiality. This command checks prose locally and never sends it to an API. No automatic fix is applied. Optional LanguageTool is a separate on-demand local CLI check, documented in the tools reference; never claim it ran merely because jars are installed. Record findings against the exact article hash.
 
 Assign the existing Editor independently of the Writer, and a separate Technical Reviewer. For each finding record id, severity, source/line, impact, proposed action and disposition. BLOCKER means a substantial technical error, security/privacy issue or clear falsehood and must be fixed. MAJOR normally needs a change; a specific recorded rationale may justify proceeding. MINOR and SUGGESTION do not stop the work. A mechanical warning is a review candidate, not proof of a factual error.
 

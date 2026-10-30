@@ -39,5 +39,21 @@
       "no-ai-colon-continuation": false,
       "ai-tech-writing-guideline": false
     }
+  },
+  "filters": {
+    "node-types": {
+      "nodeTypes": [
+        "Code",
+        "CodeBlock",
+        "Yaml",
+        "Toml",
+        "Json",
+        "Html",
+        "HtmlBlock",
+        "Link",
+        "Image",
+        "Definition"
+      ]
+    }
   }
 }
