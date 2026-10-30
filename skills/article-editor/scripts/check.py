@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import tempfile
 
@@ -85,6 +86,15 @@ def config_hash():
              'styles/config/vocabularies/Project/accept.txt', 'styles/config/vocabularies/Project/reject.txt']
     return digest(json.dumps({p:digest((CONFIG/p).read_bytes()) for p in paths},sort_keys=True))
 
+def aggregate_findings(rows):
+    merged={}
+    for row in rows:
+        key=(row.get('line'),row.get('column'),row.get('severity'),re.sub(r'\s+',' ',row['message']).strip())
+        source={'tool':row.get('tool'),'rule':row.get('rule')}
+        if key not in merged:merged[key]={**row,'sources':[]}
+        if source not in merged[key]['sources']:merged[key]['sources'].append(source)
+    return list(merged.values())
+
 def run_tool(name, masked):
     if name == 'textlint':
         binary = CONFIG / 'node_modules/.bin/textlint'
@@ -138,7 +148,8 @@ def check(path, lang, suppressions=None):
     findings=[]
     if primary['status']!='COMPLETED':
         findings.append({'id':'primary-tool','severity':'MAJOR','rule':primary['name'],'line':1,'message':'Primary tool '+primary['status'],'status':'OPEN'})
-    for i,f in enumerate(primary['findings']): findings.append({'id':f'lint-{i+1}',**f,'status':'OPEN'})
+    for i,f in enumerate(aggregate_findings([dict(f,tool=primary['name']) for f in primary['findings']])):
+        findings.append({'id':f'lint-{i+1}',**f,'status':'OPEN'})
     for f in findings:
         f['fingerprint']=digest(json.dumps({k:f.get(k) for k in ['rule','line','column','message','severity']},sort_keys=True))
     used=[]
@@ -152,7 +163,8 @@ def check(path, lang, suppressions=None):
     return {'schema_version':1,'checker_version':'1.0.0','checker_sha256':digest(Path(__file__).read_bytes()),'article_sha256':digest(raw),'masked_sha256':digest(masked),
             'config_sha256':config_hash(),'language':lang,'network':'NONE','input_modified':False,
             'tools':[primary,{'name':'languagetool','version':None,'executed':False,'exit_code':None,
-                            'status':'NOT_INSTALLED','optional':True,'note':'Local Java/LanguageTool not provisioned. Japanese is supported; no JA spellcheck.'}],
+                            'status':'NOT_INSTALLED','optional':True,'java_available':bool(shutil.which('java')),
+                            'note':'LanguageTool jar is not provisioned; no cloud fallback. Japanese is supported, without JA spellcheck.'}],
             'findings':findings,'suppressions':used}
 
 def write_report(path, value, input_path):

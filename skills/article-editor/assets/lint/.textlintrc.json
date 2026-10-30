@@ -27,6 +27,17 @@
         "severity": "warning"
       },
       "no-kangxi-radicals": false
+    },
+    "@textlint-ja/preset-ai-writing": {
+      "no-ai-list-formatting": {
+        "severity": "warning"
+      },
+      "no-ai-hype-expressions": {
+        "severity": "warning"
+      },
+      "no-ai-emphasis-patterns": false,
+      "no-ai-colon-continuation": false,
+      "ai-tech-writing-guideline": false
     }
   }
 }

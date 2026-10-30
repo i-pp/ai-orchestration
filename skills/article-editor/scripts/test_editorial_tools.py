@@ -14,6 +14,17 @@ def module(name):
 c=module('check');r=module('review')
 
 class EditorialTests(unittest.TestCase):
+    def test_duplicate_aggregation_keeps_all_sources_and_separate_issues(self):
+        a={'tool':'textlint','rule':'one','line':1,'column':2,'message':'Same warning','severity':'MINOR'}
+        b=dict(a,tool='optional-fixture-only',rule='two',message='Same  warning')
+        other=dict(b,column=9)
+        result=c.aggregate_findings([a,b,other]);self.assertEqual(len(result),2)
+        self.assertEqual(len(result[0]['sources']),2);self.assertEqual(len(result[1]['sources']),1)
+    def test_real_ai_writing_rule_is_advisory(self):
+        result=c.run_tool('textlint','これは革命的な技術です。\n\n- **重要**: 問題を完全に解決します。\n')
+        self.assertEqual(result['status'],'COMPLETED')
+        self.assertTrue(any('no-ai-hype-expressions' in f['rule'] for f in result['findings']))
+        self.assertTrue(all(f['severity']=='MINOR' for f in result['findings']))
     def test_link_tail_and_multibacktick_inline_code(self):
         text='[docs](https://example.test/a(b)) The the result (important).\n``a ` b``\n'
         masked=c.prose_only(text)
