@@ -8,6 +8,14 @@ Before treating a draft as an article, state the reader's concrete question, the
 
 Choose LONG_FORM, SHORT_NOTE or DEFER with reasons. If evidence or contribution is thin, shorten or park the material; do not add invented resolution, generic lessons or length. Compare relevant primary documentation and acknowledge when the draft merely restates it. Keep missing evidence and the condition for reconsideration explicit. Record user rejection as reopening editorial acceptance; do not preserve a misleading PASS label.
 
+## Purpose-first entry for unfamiliar readers
+
+Write the title and opening for a reader arriving from search who knows nothing about the author or project and wants to accomplish a specific task. Before the example's chronology, state what the reader wants to achieve, the obstacle or decision, what this bounded investigation compared, and the finding or usable information. Identify the relevant model/tool/language and scope in the title plus opening. A technical symptom is evidence for that question, not a substitute for the purpose.
+
+Connect the supported causal chain: what tools were used and what was being built, which task was assigned to which AI, the observed failure, the attempted response that still failed, the diagnostic reasoning, the change, the measured outcome, and the specific reader takeaway. Do not turn that chain into mandatory section headings or invent missing steps. Distinguish explanation order from event chronology: do not claim a cause was discovered after a retry if earlier records already described it. Preserve failed attempts and limited results; an intention to help readers is expressed through a concrete usable distinction, not a promotional call to action or stock conclusion.
+
+Do not repair a missing purpose with a long project introduction. Use only supported motivation; do not invent the author's experience or imply that one task proves general capability. Keep the promise aligned with the actual evidence and any unsuccessful outcome. The Editor must perform a cold-reader check on the title and opening alone: can a goal-oriented reader identify the target, problem, comparison, result and limits without learning the project first? Reopen the framing if not.
+
 ## AI writing disclosure
 
 Disclose ChatGPT-assisted drafting/editing visibly at the start of content produced through this workflow, and in the medium's valid metadata tag/topic field. Name other material AI assistance accurately when applicable. Plain disclosure is required even after human revision; style work must improve content, not conceal AI authorship. Check the platform's current syntax: a text hashtag is not automatically a platform topic. Record disclosure presence separately from substantive quality and preserve explicit human merge/publication approval.
