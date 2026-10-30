@@ -14,6 +14,61 @@ def module(name):
 c=module('check');r=module('review')
 
 class EditorialTests(unittest.TestCase):
+    def test_optional_read_failure_is_visible_and_nonblocking(self):
+        original=c.Path.read_bytes
+        def inaccessible(path):
+            if path.name=='noslop':raise PermissionError('Fixture read failure')
+            return original(path)
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);binary=root/'.tools/noslop-v26.10.114/noslop';binary.parent.mkdir(parents=True);binary.write_bytes(b'Fixture')
+            with patch.object(c,'CONFIG',root),patch.object(c.Path,'read_bytes',inaccessible),patch.object(c.subprocess,'run') as run:
+                result=c.run_noslop('公開検証文。','ja',True)
+        self.assertEqual(result['status'],'TOOL_ERROR');self.assertFalse(result['executed']);run.assert_not_called()
+    def test_native_markdown_preserves_prose_after_inline_code(self):
+        for lang,prose in [('ja','これは革命的な技術です。'),('en','The the mispeling word.')]:
+            with tempfile.TemporaryDirectory() as d:
+                p=Path(d)/'fixture.md';p.write_text('`code` '+prose+'\n')
+                result=c.check(p,lang)
+            self.assertEqual(result['tools'][0]['status'],'COMPLETED');self.assertTrue(result['findings'])
+    def test_private_link_and_metadata_exclusions_do_not_hide_following_prose(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'fixture.md';p.write_text('---\ntitle: 革命的な\n---\n[革命的な](https://example.test/a) これは革命的な技術です。\n')
+            report=c.check(p,'ja')
+            hype=[f for f in report['findings'] if (f.get('category')=='AI_HYPE')]
+            self.assertEqual(len(hype),1);self.assertEqual((hype[0]['line'],hype[0]['column']),(4,35))
+    def test_noslop_not_requested_and_english_do_not_execute(self):
+        with patch.object(c.subprocess,'run') as run:
+            self.assertEqual(c.run_noslop('Fixture','ja')['status'],'NOT_RUN')
+            self.assertEqual(c.run_noslop('Fixture','en',True)['status'],'NOT_APPLICABLE')
+        run.assert_not_called()
+    def test_noslop_requires_explicit_matching_sanitized_copy(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'fixture.md';p.write_text('公開検証文。')
+            with patch.object(c,'run_noslop') as run:
+                with self.assertRaises(ValueError):c.check(p,'ja',noslop=True)
+            run.assert_not_called()
+    def test_noslop_digest_mismatch_never_executes(self):
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);binary=root/'.tools/noslop-v26.10.114/noslop';binary.parent.mkdir(parents=True);binary.write_bytes(b'Untrusted fixture')
+            with patch.object(c,'CONFIG',root),patch.object(c.subprocess,'run') as run:
+                result=c.run_noslop('公開検証文。','ja',True)
+            self.assertEqual(result['status'],'DIGEST_MISMATCH');self.assertFalse(result['executed']);run.assert_not_called()
+    def test_unicode_position_and_semantic_merge_keep_both_ranges(self):
+        line,col,span=c.textlint_position('🧪革命的な',{'line':1,'column':3,'loc':{'end':{'line':1,'column':7}}})
+        self.assertEqual((line,col,span),(1,2,'革命的な'))
+        a={'tool':'textlint','rule':'ai-hype','category':'AI_HYPE','line':line,'column':col,'span_text':span,'message':'Candidate A','severity':'MINOR'}
+        b=dict(a,tool='noslop',rule='P19',span_text='革命的',message='Candidate B',original_severity='info')
+        result=c.aggregate_findings([a,b,dict(b,span_text='別語')]);self.assertEqual(len(result),2)
+        self.assertEqual({x['span_text'] for x in result[0]['sources']},{'革命的な','革命的'})
+    @unittest.skipUnless((c.CONFIG/'.tools/noslop-v26.10.114/noslop').is_file(),'Optional noslop is not installed in this environment')
+    def test_real_noslop_local_merge_and_markdown_protection(self):
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'fixture.md';p.write_text('これは革命的な技術です。\n\n- **重要**: すべての問題を完全に解決します。\n\n```text\nこれは革命的な技術です。\n```\n')
+            before=p.read_bytes();report=c.check(p,'ja',noslop=True,sanitized_sha256=hashlib.sha256(before).hexdigest())
+            self.assertEqual(report['tools'][2]['status'],'COMPLETED')
+            self.assertEqual(len(report['tools'][0]['findings']),3);self.assertEqual(len(report['tools'][2]['findings']),1)
+            self.assertEqual(len(report['findings']),3);self.assertEqual(len(report['findings'][0]['sources']),2)
+            self.assertTrue(all(f['line']<5 for f in report['findings']));self.assertEqual(before,p.read_bytes())
     def test_duplicate_aggregation_keeps_all_sources_and_separate_issues(self):
         a={'tool':'textlint','rule':'one','line':1,'column':2,'message':'Same warning','severity':'MINOR'}
         b=dict(a,tool='optional-fixture-only',rule='two',message='Same  warning')

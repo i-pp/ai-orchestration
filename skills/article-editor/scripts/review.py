@@ -21,8 +21,24 @@ def final_state(article, mechanical, record):
         raise ValueError('Incomplete mechanical execution report')
     tools=mechanical.get('tools',[])
     primary='textlint' if mechanical['language']=='ja' else 'vale'
-    if len(tools)!=2 or tools[0].get('name')!=primary or tools[1].get('name')!='languagetool':
+    if len(tools) not in (2,3) or tools[0].get('name')!=primary or tools[1].get('name')!='languagetool':
         raise ValueError('Mechanical report must identify primary and optional tool')
+    if len(tools)==3:
+        optional=tools[2]
+        if optional.get('name')!='noslop' or optional.get('optional') is not True or type(optional.get('requested')) is not bool:
+            raise ValueError('Invalid optional noslop provenance')
+        status=optional.get('status')
+        if status=='COMPLETED':
+            if (mechanical['language']!='ja' or optional.get('requested') is not True or optional.get('executed') is not True
+                    or optional.get('exit_code')!=0 or type(optional.get('exit_code')) is not int or optional.get('version')!='26.10.114'
+                    or optional.get('binary_sha256')!='bd5c48be69d9bc1bfdf024ad1731b21db312dfcf527df44ba031cec667727711'
+                    or optional.get('sanitized_sha256')!=sha):raise ValueError('Noslop completion needs exact pinned execution and input')
+        elif status in ('NOT_RUN','NOT_APPLICABLE','NOT_INSTALLED','DIGEST_MISMATCH','VERSION_MISMATCH'):
+            if optional.get('executed') is not False or optional.get('exit_code') is not None:raise ValueError('Unrun noslop cannot claim execution')
+        elif status!='TOOL_ERROR':raise ValueError('Unknown optional noslop status')
+        if optional['requested'] and mechanical['language']=='ja' and status!='COMPLETED':
+            if not any(f.get('id')=='optional-noslop' and f.get('severity')=='MINOR' for f in mechanical.get('findings',[])):
+                raise ValueError('Requested optional failure must remain visible')
     if tools[0].get('status')=='COMPLETED':
         if (tools[0].get('executed') is not True or type(tools[0].get('exit_code')) is not int
                 or tools[0]['exit_code'] not in [0,1] or tools[0].get('version')!={'textlint':'15.8.0','vale':'3.25.1'}[primary]):
