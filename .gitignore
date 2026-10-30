@@ -1,0 +1,11 @@
+# Local Serena project state
+.serena/
+
+# Operating system metadata
+.DS_Store
+Thumbs.db
+
+# Editor temporary files
+*.swp
+*.swo
+*~
