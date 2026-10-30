@@ -15,4 +15,6 @@ Give each delegated task a defined objective, scope, allowed inputs and actions,
 
 ## Editorial assignments
 
-Reuse Codex or a bounded Local LLM assignment as Writer (draft), Editor (readability and author voice), or Technical Reviewer (evidence and correctness). These are media-independent responsibilities, not new execution agents or permissions. Assign Editor and Technical Reviewer independently of the Writer and record who checked what. Follow [editorial policy](../policies/editorial.md); keep provider operations in the target repository.
+Reuse Codex or a bounded Local LLM assignment as Writer (draft), Editor (independent editorial review of reader value, purpose, reasoning and supported author voice), or Technical Reviewer (evidence and correctness). These are media-independent responsibilities, not new execution agents or permissions. Assign Editor and Technical Reviewer independently of the Writer and record who checked what. Follow [editorial policy](../policies/editorial.md); keep provider operations in the target repository.
+
+The Editor uses [article-editor](../skills/article-editor/SKILL.md) and returns a consolidated severity/location/impact/action list, checks targeted revisions and identifies the final article hash. Hand technical meaning changes to the separate Technical Reviewer. Reuse this assignment; do not add a duplicate Editorial Review execution agent. Ready means preparation for human review, never merge/publication authority.

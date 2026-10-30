@@ -1,0 +1,10 @@
+{
+  "name": "project-kiss-editorial-lint",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {"node": ">=22"},
+  "devDependencies": {
+    "textlint": "15.8.0",
+    "textlint-rule-preset-japanese": "10.0.4"
+  }
+}
