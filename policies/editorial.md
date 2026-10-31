@@ -6,6 +6,12 @@ Read the standard using `python3 skills/technical-writing/scripts/load_policy.py
 
 Use [technical-writing](../skills/technical-writing/SKILL.md) for Face B and the B→A handoff; [article-editor](../skills/article-editor/SKILL.md) for independent technical/editorial judgments. Keep evidence, policy identity and substantive A/B differences in supporting records rather than administrative prose in the article. A partial launcher is Working Configuration or Troubleshooting, not a complete Quick Start. Facts, source attribution and necessary limitations remain intact.
 
+## Draft lineage and policy selection
+
+Initial is the first completed, delivered Codex manuscript directed by Dot: a non-release historical source, not an internal pre-edit scratch draft and not a later ChatGPT rewrite. Codex rewrites that verified source under the selected policy to create B, an intended publication target. ChatGPT rewrites frozen accepted B into A, also an intended publication target. Rinka's independent ChatGPT may rewrite A into C, an independently authored intended publication target. Intended publication is a purpose, never permission: keep drafts unpublished until the applicable explicit release authorization. C remains outside this shared workflow and must not be contacted or given these instructions.
+
+For each new draft/revision, choose the latest explicitly accepted policy revision available through an authorized source; a newer branch head alone does not establish acceptance. Freeze its exact commit, canonical document version/hash, source manuscript identity and acceptance evidence with that draft. Feedback may revise the policy in a separate reviewed change; it never rebinds an old manuscript to a future latest policy. No automatic newest lookup, unreviewed fetch or second policy registry is introduced. The current loader validates the accepted v2.0 manifest; a future incompatible version requires a reviewed loader update rather than a fallback.
+
 ## Disclosure placement
 
 Lead with the reader's problem, observation and practical takeaway. Put a concise, visible and accurate AI-assistance notice after that opening (or in a visible endnote), with the medium's valid ChatGPT topic/tag when applicable. This supersedes the former requirement to start the article with provenance or place disclosure before the first heading. Do not hide disclosure in HTML, comments or code blocks. Disclosure is transparency, not an editorial-quality test. Do not automatically rewrite existing article bodies.
