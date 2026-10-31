@@ -5,6 +5,8 @@ description: Create an evidence-based Face B reference and prepare its frozen ha
 
 # Technical writing
 
+Identify the existing active topic branch/folder, PR and integration base using [editorial branch guidance](../../docs/ai/editorial-branching.md). Keep substantive revisions on that history; rebase work in progress after accepted policy/integration updates, without rewriting frozen provenance or remote history silently.
+
 Read the authoritative [Editorial Policy v2.0](../../docs/ai/editorial-policy.md), [workflow supplement](../../policies/editorial.md), [execution policies](../../docs/ai/policies.md) and [roles](../../agents/README.md). Run `python3 scripts/load_policy.py --show` from this Skill directory and read the returned context. Record hashes and actual version, not a claimed latest policy.
 
 1. Identify the reader's problem, practical payoff and authorized evidence. Verify Initial as the first completed, delivered Codex manuscript from Dot's assignment using source creation/delegation/delivery records; do not substitute a ChatGPT rewrite, an internal pre-edit draft or a later export because its filename says before. Initial is a non-release historical source. Select the latest explicitly accepted policy revision for this new draft and freeze its exact commit/version/hash and acceptance reference. Feedback changes policy separately; never rebind older manuscripts to a future policy. Separate observed/reported facts, hypotheses and recommendations. Preserve topic IDs and source hashes privately; do not lead the article with them.

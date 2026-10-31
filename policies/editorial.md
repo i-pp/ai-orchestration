@@ -12,6 +12,10 @@ Initial is the first completed, delivered Codex manuscript directed by Dot: a no
 
 For each new draft/revision, choose the latest explicitly accepted policy revision available through an authorized source; a newer branch head alone does not establish acceptance. Freeze its exact commit, canonical document version/hash, source manuscript identity and acceptance evidence with that draft. Feedback may revise the policy in a separate reviewed change; it never rebinds an old manuscript to a future latest policy. No automatic newest lookup, unreviewed fetch or second policy registry is introduced. The current loader validates the accepted v2.0 manifest; a future incompatible version requires a reviewed loader update rather than a fallback.
 
+## Branch discipline
+
+Follow [editorial branches and revision history](../docs/ai/editorial-branching.md): one active topic branch/folder, one substantive revision per commit and an explicit PR/base. Rebase work in progress onto the latest accepted media integration base after verified policy-pin updates; preserve frozen applied-policy bindings. Consolidation must preserve actual source lineage, not manufacture a Chat-on-B revision. Remote rewrites require an exact preservation/lease plan and authorization.
+
 ## Disclosure placement
 
 Lead with the reader's problem, observation and practical takeaway. Put a concise, visible and accurate AI-assistance notice after that opening (or in a visible endnote), with the medium's valid ChatGPT topic/tag when applicable. This supersedes the former requirement to start the article with provenance or place disclosure before the first heading. Do not hide disclosure in HTML, comments or code blocks. Disclosure is transparency, not an editorial-quality test. Do not automatically rewrite existing article bodies.
