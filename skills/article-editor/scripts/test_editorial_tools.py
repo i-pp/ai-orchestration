@@ -144,6 +144,9 @@ class EditorialTests(unittest.TestCase):
             v['mechanical_sha256']=report_sha
             with self.assertRaises(ValueError):r.final_state(p,{'article_sha256':sha,'findings':[]},v)
             self.assertEqual(r.final_state(p,m,v)['state'],'READY_FOR_HUMAN_REVIEW')
+            rejected=self.record(sha);rejected['mechanical_sha256']=report_sha
+            rejected['technical']['verdict']='PASS';rejected['editor']['verdict']='FAIL'
+            self.assertEqual(r.final_state(p,m,rejected)['state'],'BLOCKED')
             v['cycle']=3
             with self.assertRaises(ValueError):r.final_state(p,m,v)
             v=self.record(sha);v['mechanical_sha256']=report_sha;v['roles']['editor']='Writer'

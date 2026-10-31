@@ -5,7 +5,7 @@ description: Review and revise technical article drafts for reader value, cohere
 
 # Article editor
 
-Use within [technical-writing](../technical-writing/SKILL.md), after evidence and topic selection. Read [editorial policy](../../policies/editorial.md). Reuse the existing Editor assignment; do not create an additional agent definition or treat tool output as editorial acceptance.
+Use within [technical-writing](../technical-writing/SKILL.md), after evidence and topic selection. Read [Editorial Policy v2.0](../../docs/ai/editorial-policy.md) and its [workflow supplement](../../policies/editorial.md). Reuse the existing Editor assignment; do not create an additional agent definition or treat tool output as editorial acceptance.
 
 Load the authoritative [Engineering Editorial Policy](../../docs/ai/editorial-policy.md), roles and sample calibration using `python3 ../technical-writing/scripts/load_policy.py --show` from this Skill directory. Read the [before/after assessment](references/engineering-example.md). Missing context remains a hold on acceptance. Samples guide reader value and voice; their factual claims and missing metadata are not automatically approved. Preserve the supplied originals and report proposed corrections separately.
 
@@ -22,3 +22,9 @@ Record an explicit conclusion from both perspectives. The Editor must explain wh
 Use `scripts/review.py` to bind both reviews and final verification to the exact file. At most two revision/review cycles: after cycle 2 return Ready with justified residuals or Blocked with the unresolved blocker; do not restart without new substantial evidence and a recorded decision. A new BLOCKER may reopen a bounded attempt with its evidence recorded; safety and correctness take priority over the old attempt’s cycle count. A changed article invalidates previous final verification.
 
 Preserve raw/edited text and the diff. Compare numbers, code, quotations, links and limitations; require human review for a meaning-changing edit. Ready is editorial preparation only: exact human merge/publication authorization, disclosure and the target repository's confidentiality/delivery checks remain separate.
+
+## v2 face and acceptance boundaries
+
+Use [face transitions](references/faces.md) for a frozen, accepted B and a separate A; preserve substantive differences. B is a readable reference, A is the primary human article. Keep reader-first opening and visible disclosure distinct: do not prepend provenance or disclaimers as a compliance preamble. The Editor answers the six v2 acceptance questions; the Technical Reviewer checks claims and evidence independently. A technical PASS with an editorial FAIL is not ready. The mechanical handoff state is not publication acceptance.
+
+Do not apply this Skill or the shared policy to Face C, contact its independent writer, manufacture its persona, or run it through this review loop. Source-only handoff requires separate authorization. Keep existing two-cycle and human-approval boundaries.

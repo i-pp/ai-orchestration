@@ -19,6 +19,7 @@ CONTEXT = (
     'skills/article-editor/references/voice-style.md',
     'skills/article-editor/references/technical-review.md',
     'skills/article-editor/references/engineering-example.md',
+    'skills/article-editor/references/faces.md',
 )
 MANIFEST = 'skills/article-editor/references/engineering-example.json'
 
@@ -36,7 +37,7 @@ def load_context(root, show=False):
     root = Path(root).expanduser().resolve()
     raw_manifest = read_file(root, MANIFEST)
     manifest = json.loads(raw_manifest)
-    if (not isinstance(manifest, dict) or manifest.get('schema_version') != 1 or manifest.get('policy_version') != '1.0'
+    if (not isinstance(manifest, dict) or manifest.get('schema_version') != 1 or manifest.get('policy_version') != '2.0'
             or not isinstance(manifest.get('files'), dict)
             or set(manifest['files']) != set(PINNED)):
         raise ValueError('Incomplete engineering-policy/example manifest')

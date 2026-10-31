@@ -25,7 +25,7 @@ class ContextTests(unittest.TestCase):
             if name in context.PINNED:
                 pins[name] = hashlib.sha256(raw).hexdigest()
         self.manifest = self.root / context.MANIFEST
-        self.manifest.write_text(json.dumps({'schema_version': 1, 'policy_version': '1.0', 'files': pins}))
+        self.manifest.write_text(json.dumps({'schema_version': 1, 'policy_version': '2.0', 'files': pins}))
 
     def test_loaded_bytes_and_roles_without_quality_or_remote_claim(self):
         result = context.load_context(self.root, show=True)
@@ -35,6 +35,13 @@ class ContextTests(unittest.TestCase):
             self.assertEqual(entry['content'].encode(), (self.root / entry['path']).read_bytes())
         self.assertEqual(result['documents'][0]['role'], 'authoritative_editorial_standard')
         self.assertEqual(result['documents'][1]['role'], 'style_example_not_factual_authority')
+
+    def test_legacy_version_cannot_claim_v2_load(self):
+        data = json.loads(self.manifest.read_text())
+        data['policy_version'] = '1.0'
+        self.manifest.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, 'Incomplete'):
+            context.load_context(self.root)
 
     def test_missing_canonical_policy_does_not_fall_back(self):
         (self.root / context.PINNED[0]).unlink()
