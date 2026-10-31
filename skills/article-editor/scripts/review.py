@@ -67,6 +67,9 @@ def final_state(article, mechanical, record):
         if d.get('severity')!=f['severity']:raise ValueError('Mechanical severity changed without a new evidence record')
         if d.get('status')=='FIXED':raise ValueError('A still-present final lint finding cannot be marked fixed')
     blockers=[];residuals=[]
+    for role in ['editor','technical']:
+        if record.get(role,{}).get('verdict') in ['FAIL','BLOCKED']:
+            blockers.append(role+'-review-rejected')
     for f in dispositions.values():
         if f.get('severity') not in SEVERITIES or f.get('status') not in ['OPEN','FIXED','ACCEPTED','SUPPRESSED']:
             raise ValueError('Unknown severity/disposition')

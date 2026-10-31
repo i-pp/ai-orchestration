@@ -22,3 +22,7 @@ Use the authoritative [Engineering Editorial Policy](../docs/ai/editorial-policy
 The Editor uses [article-editor](../skills/article-editor/SKILL.md) and returns a consolidated severity/location/impact/action list, checks targeted revisions and identifies the final article hash. Hand technical meaning changes to the separate Technical Reviewer. Reuse this assignment; do not add a duplicate Editorial Review execution agent. Ready means preparation for human review, never merge/publication authority.
 
 For handoffs and short progress reports, use [communication quality](../policies/communication-quality.md); preserve audit information and do not apply short-message restrictions to long articles.
+
+## Editorial v2 boundaries
+
+Writer/Codex creates Face B; ChatGPT edits Face A only after B acceptance and freeze. Editor and Technical Reviewer assess different criteria for B/A; technical correctness never substitutes for reader value. Use [v2](../docs/ai/editorial-policy.md) and [face transitions](../skills/article-editor/references/faces.md). Rinka's Face C is independent and outside shared assignments: no contact, policy/Skill injection, manufactured persona or forced review format.
