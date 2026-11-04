@@ -48,4 +48,4 @@ Detailed records and historical test evidence remain in their dedicated document
 - Resolve the unrelated editorial PR before integrating overlapping policy or instruction changes; this pilot does not modify its branch.
 - Re-run VitePress install/build and Markdown lint after future documentation changes.
 - Reconfirm test commands, links, and status claims from a local checkout at the PR head before approval.
-- No CI workflow or PR status check was present at review time. No follow-up issue was created; adding non-deploying documentation checks and revisiting the alpha toolchain remain untracked follow-up work.
+- No CI workflow or PR status check was present at review time. [Follow-up issue #3](https://github.com/i-pp/ai-orchestration/issues/3) tracks non-deploying documentation checks and review of the alpha toolchain and four low-severity findings.
