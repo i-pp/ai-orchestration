@@ -1,6 +1,6 @@
 # Execution Policies
 
-These policies govern permission and escalation decisions. The operating principles are maintained in [`orchestration.md`](orchestration.md); agent responsibilities are maintained in [`../../agents/README.md`](../../agents/README.md).
+These policies govern permission and escalation decisions. The operating principles are maintained in [`orchestration.md`](orchestration.md); agent responsibilities are maintained in the [agent role guide](https://github.com/i-pp/ai-orchestration/blob/main/agents/README.md).
 
 ## Permission boundaries
 

@@ -4,7 +4,7 @@
 
 AI orchestration defines how work is assigned, coordinated, reviewed, and governed. It is separate from runtime implementation: scheduling, process execution, monitoring, and task lifecycle belong in `agent-orchestrator`.
 
-The agent roles and delegation boundaries are defined in [`../../agents/README.md`](../../agents/README.md). Execution permissions and escalation are defined in [`policies.md`](policies.md).
+The agent roles and delegation boundaries are defined in the [agent role guide](https://github.com/i-pp/ai-orchestration/blob/main/agents/README.md). Execution permissions and escalation are defined in [`policies.md`](policies.md).
 
 ## Operating principles
 
