@@ -58,4 +58,4 @@ Markdown in `docs/` is the canonical source for the VitePress prototype. Keep si
 
 ## Reusable workflow
 
-Use the [`technical-documentation` agent](https://github.com/i-pp/ai-orchestration/blob/main/.codex/agents/technical-documentation.toml) and the repository skills under [`.agents/skills/`](https://github.com/i-pp/ai-orchestration/tree/main/.agents/skills). They follow this policy and do not expand the permissions of the parent task.
+Use the [`technical-documentation` agent](https://github.com/i-pp/ai-orchestration/blob/docs/technical-documentation-2026-11-04/.codex/agents/technical-documentation.toml) and the repository skills under [`.agents/skills/`](https://github.com/i-pp/ai-orchestration/tree/docs/technical-documentation-2026-11-04/.agents/skills). They follow this policy and do not expand the permissions of the parent task.

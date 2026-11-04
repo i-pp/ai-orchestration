@@ -58,4 +58,4 @@ VitePress試作では `docs/` 内のMarkdownを正本にします。コピーし
 
 ## 再利用する手順
 
-[`technical-documentation` agent](https://github.com/i-pp/ai-orchestration/blob/main/.codex/agents/technical-documentation.toml) と [`.agents/skills/`](https://github.com/i-pp/ai-orchestration/tree/main/.agents/skills) 配下のskillを使います。いずれもこのポリシーに従い、親タスクの権限範囲を拡張しません。
+[`technical-documentation` agent](https://github.com/i-pp/ai-orchestration/blob/docs/technical-documentation-2026-11-04/.codex/agents/technical-documentation.toml) と [`.agents/skills/`](https://github.com/i-pp/ai-orchestration/tree/docs/technical-documentation-2026-11-04/.agents/skills) 配下のskillを使います。いずれもこのポリシーに従い、親タスクの権限範囲を拡張しません。
