@@ -2,7 +2,7 @@
 
 ## Overview
 
-The canonical source for AI development orchestration policies, architecture, agent roles, delegation, escalation, and governance. It defines how work is coordinated; it does not implement task execution.
+AI Orchestration helps teams coordinate work across repositories with shared rules for agent roles, delegation, escalation, and governance. Start with the [agent role guide](agents/README.md) and [execution policies](docs/ai/policies.md), then verify how your runtime loads or enforces them. This repository defines coordination policy, not task execution.
 
 | Repository | Owns |
 | --- | --- |
@@ -15,7 +15,7 @@ There is no package installation step. Runtime projects should reference the can
 
 ## Usage
 
-Use the role boundaries and execution policies when assigning, delegating, reviewing, and escalating work. Runtime-specific commands and behavior belong in `agent-orchestrator`.
+Start with the [agent role guide](agents/README.md) when assigning work, and the [execution policies](docs/ai/policies.md) before delegating or escalating. Runtime-specific commands and behavior belong in `agent-orchestrator`.
 
 ## Advanced Usage
 
