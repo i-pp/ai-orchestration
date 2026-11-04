@@ -9,6 +9,8 @@ This inventory records the two-repository pilot before editing the READMEs. It i
 | [`ai-orchestration`](https://github.com/i-pp/ai-orchestration) | `81ccf9a35f942ad329742a0182090ab151a6a2c5` | 25 lines, 1,530 characters; concise English overview, ownership table, structure and integration caveat | None | Draft PR [#1](https://github.com/i-pp/ai-orchestration/pull/1), an editorial workflow change |
 | [`agent-orchestrator`](https://github.com/i-pp/agent-orchestrator) | `1468c0abb06e0b36ad92a7f041d5305aab688947` | 459 lines, 34,389 UTF-8 bytes; Japanese, combining quick-start, design, operations, experiments, test history and status | None | None |
 
+The revised AI orchestration README is 33 lines / 1,787 UTF-8 bytes, with a 33-line / 2,116-byte Japanese translation. Because the original was already concise, this change improves structure and navigation rather than shortening it: it adopts the requested five-part outline (using Adoption instead of Installation), keeps repository ownership and the no-automatic-enforcement caveat, and adds direct links to the documentation workflow, policy, and site prototype.
+
 No local checkout of either repository was attached to this task workspace. The inspection used the connected GitHub API. The existing `ai-orchestration` draft PR remains untouched; it overlaps with future instruction-file work and should be integrated separately.
 
 ## `ai-orchestration`
@@ -46,3 +48,4 @@ Detailed records and historical test evidence remain in their dedicated document
 - Resolve the unrelated editorial PR before integrating overlapping policy or instruction changes; this pilot does not modify its branch.
 - Re-run VitePress install/build and Markdown lint after future documentation changes.
 - Reconfirm test commands, links, and status claims from a local checkout at the PR head before approval.
+- No CI workflow or PR status check was present at review time; a follow-up issue tracks adding non-deploying documentation checks and revisiting the alpha toolchain.
