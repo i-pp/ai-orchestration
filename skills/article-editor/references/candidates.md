@@ -1,0 +1,25 @@
+# Candidate review (2026-10-30)
+
+Prefer the smallest source-verified local stack; do not install every candidate. Writing checks support the author's voice, not AI-author detection or removal of the required disclosure.
+
+| Candidate | Verified identity / license | Decision |
+| --- | --- | --- |
+| textlint-rule-preset-japanese | 10.0.4, MIT, official npm and textlint-ja source | Adopt a small warning-level subset. |
+| textlint-rule-preset-ja-technical-writing | 12.0.2, MIT, official npm; overlaps general Japanese rules | Not installed; avoid duplicate grammar/style presets and forced polite voice. Reconsider on a demonstrated missing check. |
+| @textlint-ja/textlint-rule-preset-ai-writing | 1.7.0, MIT; requires textlint >=15.1.0 | Adopt list-format/hype candidates at warning severity; other rules off initially. Observe false positives; never edit blindly. |
+| noslop | owayo/noslop release v26.10.114, commit b2ef7a4eb7ad03391f9b06e1e5f274313d1c2864; core MIT, bundled notices include NAIST-2003 / Apache-2.0 / BSD-3-Clause | Approved local trial completed; explicit optional Japanese adapter added locally. No global Skill/hook installation. Its revision comparison may complement fact preservation; it cannot establish correct attribution. Measured trial: Next draft noslop0/textlint1; a public fixture noslop1/textlint3 with one HYPE overlap. This is not article acceptance. |
+| no-ai-slop | petergyang/no-ai-slop main 000650b156983f5159695b441477f4e63b25dc85, MIT; release v1.0.6 is a different revision | No independent Skill. Keep minimum edits, author vocabulary/uncertainty and reader purpose in existing voice review. Exclude blanket word/contrast bans and indefinite polish loops. |
+| slop-shield | cmedfisch/slop-shield 2405d23c545092650ec49f5dc5b4571f3e9bbbae, manifest 0.1.0, MIT | Communication guidance only; long articles/runbooks excluded. Preserve source/hash/limits/FAIL/UNKNOWN/approval information. |
+| LanguageTool | official fixed 6.6 ZIP, local optional CLI; Java 25.0.4.1 confirmed | 6.6 ZIP returned Cloudflare1010/HTTP403. Official Maven CLI6.8 plus explicit en/ja modules ran four public examples on Java25: expected error rules and clean controls passed. Japanese has no spellcheck; article-scale/full compatibility remains unverified. Do not expose a server or use cloud API. |
+
+## Sources and boundaries
+
+- Official npm metadata and lock entries identify all textlint packages above. [Japanese preset](https://github.com/textlint-ja/textlint-rule-preset-japanese), [technical preset](https://github.com/textlint-ja/textlint-rule-preset-ja-technical-writing/releases/tag/v12.0.2), [AI-writing fixed source](https://github.com/textlint-ja/textlint-rule-preset-ai-writing/blob/45bb6485062b96a8578c5fa6ae37a41de01d9b80/README.md).
+- [noslop installation](https://github.com/owayo/noslop/blob/b2ef7a4eb7ad03391f9b06e1e5f274313d1c2864/docs/installation.md), [third-party notices](https://github.com/owayo/noslop/blob/b2ef7a4eb7ad03391f9b06e1e5f274313d1c2864/THIRD_PARTY_NOTICES.md), [review data flow](https://github.com/owayo/noslop/blob/b2ef7a4eb7ad03391f9b06e1e5f274313d1c2864/docs/review.md). Source build requires Rust >=1.98. Default make-install also installs user Skills: do not use it for a CLI trial. Any future unknown release executable trial needs the exact asset/hash/command/scope reviewed first; no external reviewer option or draft API.
+- [no-ai-slop source](https://github.com/petergyang/no-ai-slop/blob/000650b156983f5159695b441477f4e63b25dc85/skills/no-ai-slop/SKILL.md), [MIT](https://github.com/petergyang/no-ai-slop/blob/000650b156983f5159695b441477f4e63b25dc85/LICENSE).
+- [slop-shield scope](https://github.com/cmedfisch/slop-shield/blob/2405d23c545092650ec49f5dc5b4571f3e9bbbae/skills/slop-shield/SKILL.md), [MIT](https://github.com/cmedfisch/slop-shield/blob/2405d23c545092650ec49f5dc5b4571f3e9bbbae/LICENSE).
+- [LanguageTool directory](https://languagetool.org/download/) lists LanguageTool-6.6.zip, 251998221 bytes. [Language table](https://dev.languagetool.org/languages) includes Japanese but no Japanese spellcheck. Neither that table nor Java's version output demonstrates a successful local LanguageTool run.
+
+Keep the actual trial and current source identity separate. The optional adapter preserves provenance for observed HYPE equivalence and exact duplicates; zero findings is not editorial acceptance. Global Skill/hook registration and new remote publication are outside this implementation.
+
+Local LanguageTool provisioning used Apache Maven3.10.0 with official SHA512, dependency-plugin3.8.1, strict checksums and official Central only. The98 unchanged JARs total90,521,950 bytes; runtime inventory SHA256 is dd24bee94c333cbdddfd00757a90ad119d337c9fe93b0b13345e16ead1df6912. The source tag e807fcde6a6506191e1470744d2345da28c26be6 and artifact-reported build f558ce3ab932cb7b77491a53b2468d03d0463b15 differ and are recorded separately; reproducible-build equivalence is not claimed. Do not use `java -jar` as if this were the complete ZIP layout.

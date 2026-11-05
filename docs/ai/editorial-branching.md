@@ -1,0 +1,15 @@
+# Editorial branches and revision history
+
+Use one active branch and one article folder per topic. State the repository, branch, PR and integration target before editing. Reuse that branch for ordinary corrections and later faces; do not create an archive branch per correction. Shared editorial infrastructure belongs in one integration PR, not in every article's unrelated diff. Keep article PRs based on the reviewed infrastructure branch until it is accepted into the normal integration branch; then rebase and retarget them.
+
+Record one commit per substantive manuscript revision. Preserve verified snapshots for the Codex initial draft, actual Codex self-revisions, the policy-v2 B revision and later ChatGPT revisions. Keep the initial draft non-release. Store historical ChatGPT drafts with their actual source and date; a Chat draft that predates the new B is not its descendant. A future Chat-on-B revision remains pending until it really occurs. Use per-article provenance records for original commit IDs, authorship, byte hashes, applied policy and actual derivation. Do not fabricate a cleaner historical sequence.
+
+For work in progress, rebase onto the latest accepted integration base when policy or shared tooling changes. Acceptance is an explicit decision, not the newest branch name or an unmerged proposal. Policy code lives in a separate repository: update and verify its immutable pin in the media integration base, then rebase media article branches onto that base. Do not attempt a cross-repository Git rebase. Review conflicts, run relevant tests/lint on the final tree and check that the PR contains only its topic and necessary records.
+
+Frozen manuscript bytes and their applied-policy commit remain unchanged. A new revision may select an accepted newer policy; do not relabel the old revision or silently move its policy binding. Preserve the accepted B before ChatGPT creates A. C remains an independent response to A, outside shared instructions and contact.
+
+Before rewriting a remote ref, record its exact old head, proposed new head/tree, range-diff, preservation ref/bundle and validation. Obtain explicit authorization for that rewrite and use an exact lease; never force-push silently. A local detached rebase is preparation, not a remote update. Preserve unrelated dirty work and avoid global Git/config changes.
+
+Delete a redundant branch only after its latest head is checked, its texts/metadata are hash-verified in the retained structure and every needed source commit is reachable from a retained ref or explicitly recorded as offline-only preservation. A list of SHAs or a tag message is not reachability. Check PR references and active worktrees first. Do not delete unrelated branches, merge, publish or change visibility as cleanup.
+
+This corrects our earlier practice of splitting policy updates, source fixes and article revisions across overlapping branches without a declared integration target. The remedy is a stable topic history and an explicit integration order, not more correction branches.

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "policy_version": "2.0",
+  "files": {
+    "docs/ai/editorial-policy.md": "c63d2c316a9e8950c13dc7dfbe1c86776b1afbdadad83cd3a4c9680320f834e1",
+    "docs/ai/example/before_ryzen-ai-max-395-ubuntu-2604-npu-ja.md": "5f5b28bfd8a7da6d778a709522f4fe934174cb7cbac13f6e26e9df39c3227571",
+    "docs/ai/example/after_ryzen-ai-max-395-ubuntu-2604-npu-ja.md": "9eec5ea89007e42e0d3c774412e7d0f8949116a2f914bb6fc5184fc083e4ed9e"
+  }
+}

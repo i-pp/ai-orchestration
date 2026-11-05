@@ -1,329 +1,135 @@
-# Engineering Editorial Policy
+# Editorial Policy v2.0 — Reader First, Evidence Always
 
-Version: 1.0
+## 1. Purpose
 
-Scope: Technical articles, tutorials, engineering blogs, development notes, and publication-ready documentation.
+Produce technical writing that people want to read, understand, and use.
 
-## 1. Mission
+Technical correctness is mandatory, but correctness alone does not make a good article. The reader must gain something useful without having to decipher an internal engineering report.
 
-Write technically accurate content that engineers actually want to read and can use.
+Write for the reader. Preserve evidence for verification. Do not confuse the two.
 
-The objective is not merely to produce a correct document. It is to communicate useful engineering knowledge through a clear, natural, evidence-based narrative.
+## 2. Editorial Principles
 
-**Accuracy is mandatory. Readability and practical usefulness are equally important acceptance criteria.**
+1. Reader value first. Every article must answer: Who needs this? What problem does it solve? What can the reader do afterward?
+2. Lead with the point. Begin with the problem, an interesting observation, and the practical takeaway. Do not open with provenance, test infrastructure, or disclaimers.
+3. Explain before documenting. Present information in the order readers need to understand it, not necessarily the order events occurred.
+4. Show the work. Provide useful commands, examples, expected outcomes, and explanations when the topic calls for them.
+5. Keep the author's voice. Use natural first-person narration where appropriate. Do not invent experiences, feelings, dialogue, or events.
+6. Be precise without being defensive. State important limitations once, where they matter. Do not repeatedly interrupt the narrative to disclaim the same uncertainty.
+7. Prefer clarity over ceremony. Avoid unnecessary jargon, internal identifiers, process terminology, and administrative language.
+8. Never invent evidence. Preserve technical meaning, verified results, source attribution, and uncertainty.
+9. Make every section earn its place. Remove repetition, empty transitions, and paragraphs that serve only to demonstrate compliance.
+10. Respect the reader's time. A short useful article is better than a long article with little practical value.
 
-Never approve an article solely because its technical claims are correct.
+## 3. Article Structure
 
-## 2. Editorial Priorities
+Use the following as a default, not a rigid template.
 
-Apply the following priorities:
+### Opening
 
-1. Preserve technical correctness and evidence integrity.
-2. Solve the reader's actual problem.
-3. Identify and communicate the central engineering story.
-4. Present useful conclusions and actions early.
-5. Write natural, engaging prose.
-6. Keep exhaustive evidence in supporting documentation.
+Establish the problem and why it matters. Give busy readers the purpose, expected outcome, and key takeaway.
 
-Do not sacrifice correctness for entertainment.
+### Practical path
 
-Do not sacrifice readability for unnecessary completeness.
+Provide enough context and actionable steps to help readers facing the same problem. Do not substitute an unexplained one-liner for a useful walkthrough.
 
-## 3. Understand the Reader
+### Explanation and evidence
 
-Before writing, determine:
+Explain what happened, why it happened, and how the conclusion was verified. Include code, tests, references, and limitations where relevant.
 
-- Who is likely to read this article?
-- What problem brought them here?
-- What information do they need immediately?
-- What technical background can reasonably be assumed?
-- What would make the article genuinely useful?
+### Conclusion
 
-Do not assume readers have already completed the difficult steps the article is supposed to explain.
+State what was learned, what the reader can apply, and what remains uncertain.
 
-A reader troubleshooting a broken installation needs diagnostic commands and a path toward resolution, not merely the author's final launch script.
+Do not add headings merely to satisfy this outline.
 
-## 4. Identify the Central Story
+## 4. Writing Quality
 
-Before drafting, identify:
+- Prefer natural Japanese over translated technical-report prose.
+- Use first person when recounting the author's actual work.
+- Avoid repetitive sentence patterns and mechanical transitions.
+- Use concrete examples instead of abstract declarations.
+- Keep code and commands close to the explanation that makes them useful.
+- Distinguish observations, hypotheses, conclusions, and recommendations.
+- Preserve the author's personality without manufacturing anecdotes.
+- Remove unnecessary self-references to the editorial or validation process.
 
-- The objective
-- The expected behavior
-- The actual behavior
-- The surprising contradiction or obstacle
-- The investigation
-- The evidence that changed the diagnosis
-- The solution or current outcome
-- The remaining uncertainty
+## 5. Evidence and Technical Integrity
 
-Build the article around this story.
+Technical facts, code behavior, numerical results, sources, and material limitations must remain traceable.
 
-Do not organize the narrative merely by the order in which evidence was collected.
+Evidence belongs in supporting records when its full detail would distract the reader. Include only the evidence needed to support the article's claims.
 
-Use chronology when it clarifies the investigation.
+Do not claim that a test, preview, lint, or independent review ran unless it actually ran.
 
-Prefer causal explanations over chronological inventories.
+A passing CI check is not proof of editorial quality.
 
-## 5. Busy-Reader Summary
+## 6. Three Editorial Faces
 
-For substantial technical articles, provide a concise opening section containing:
+### Face B — AI Reference
 
-- **Purpose:** Why the work was undertaken.
-- **Goal:** What would constitute success.
-- **Result:** What was actually achieved.
-- **Practical guidance:** The most useful immediately applicable commands, procedures, or findings.
-- **Limitations:** Important unresolved prerequisites or verification gaps.
+Created by Codex using this policy.
 
-Allow readers who only need the conclusion to stop after this section.
+Optimize for accurate retrieval, explicit assumptions, reproducibility, source traceability, and machine-assisted reuse.
 
-Invite interested readers to continue into the detailed investigation.
+Face B must still be understandable to human readers. It is a structured technical reference, not an internal audit log.
 
-Do not begin with a lengthy disclaimer.
+Freeze the accepted B revision before creating Face A.
 
-## 6. Quick Start Integrity
+### Face A — Human Article
 
-A Quick Start must work for its intended reader, not merely for the author's already-configured machine.
+Edited by ChatGPT from the frozen Face B.
 
-Never label a partial launch command as a complete installation procedure.
+Optimize for reader engagement, clear explanations, practical usefulness, natural narrative, and authorial voice.
 
-Classify practical instructions accurately:
+Preserve the technical claims and evidence. Record substantive changes and resolve factual disagreements rather than silently rewriting them.
 
-- **Quick Start:** A complete, independently usable procedure for a defined starting environment.
-- **Troubleshooting:** Diagnostic and corrective steps for an existing environment.
-- **Minimal Reproduction:** The smallest procedure that reproduces a particular behavior.
-- **Working Configuration:** The configuration used in a successful historical execution.
-- **Proposed Procedure:** A reconstructed or unverified sequence.
+Face A is the primary human-facing article.
 
-Do not conflate these categories.
+### Face C — Independent Creative Response
 
-### Quick Start requirements
+Produced independently by Rinka's ChatGPT using Face A as source material.
 
-A complete Quick Start must specify:
+Do not impose this editorial policy, shared agent instructions, or a manufactured persona on the independent writer.
 
-1. Supported or tested starting environment.
-2. Required dependencies and their acquisition.
-3. Installation or setup commands.
-4. Configuration changes.
-5. Build commands, if applicable.
-6. Execution commands.
-7. Expected output and success criteria.
-8. Relevant cleanup, rollback, or recovery guidance.
-9. Known limitations.
+Face C may be a personal reaction, humorous interpretation, or unconventional technical article. Its format should be chosen through experimentation.
 
-Use concrete paths, versions, and commands where evidence supports them.
+Clearly identify Face C as a creative response rather than an authoritative technical reference. Its independence and spontaneous voice are essential.
 
-Do not use placeholders for essential missing steps and call the procedure complete.
+## 7. Review and Revision
 
-If critical steps cannot be established, publish a troubleshooting guide or working configuration instead.
+Separate technical review from editorial review.
 
-### Verification
+Technical review: Check claims, code, evidence, attribution, security, and meaningful limitations.
 
-Distinguish:
+Editorial review: Check reader value, narrative flow, usefulness, clarity, tone, and unnecessary repetition.
 
-- Commands executed successfully in the original environment.
-- Commands reconstructed from source or logs.
-- Commands statically inspected but not executed.
-- Commands proposed for future verification.
+Classify findings as BLOCKER, MAJOR, MINOR, or SUGGESTION.
 
-Never invent a successful test.
+Resolve BLOCKER findings before release. Address MAJOR findings or document a reasoned exception. Do not restart editing cycles for cosmetic issues.
 
-## 7. Engineering Voice
+Limit ordinary revision to two cycles. Escalate unresolved substantive issues rather than repeating the same discussion indefinitely.
 
-Write as an engineer explaining an investigation to another engineer.
+## 8. Publication and Transparency
 
-Use natural first-person prose when describing the author's experience.
+- Preserve Face B, Face A, and their meaningful differences.
+- Publish the applicable editorial policy and identify its version.
+- Disclose material AI assistance accurately.
+- Preserve source references and necessary technical caveats.
+- Keep private logs, secrets, credentials, and internal-only artifacts out of public content.
+- Never merge, publish, or change visibility without explicit human authorization.
 
-Prefer direct, conversational Japanese for Japanese technical articles.
+## 9. Final Acceptance Test
 
-Use technical terminology precisely, but avoid unnecessary formality.
+Before proposing publication, answer:
 
-Natural humor and informal observations are acceptable when they fit the context.
+1. Would the intended reader choose to keep reading?
+2. Can the reader understand the main point without studying internal evidence records?
+3. Does the article provide useful knowledge or a practical next step?
+4. Are technical claims accurate and supported?
+5. Does the writing sound like a person communicating, rather than a system reporting compliance?
+6. Are the differences between Faces A, B, and C transparent?
 
-Do not force humor.
+If the article passes technical validation but fails reader value, it is not editorially ready.
 
-Avoid:
-
-- Mechanical report-style narration
-- Generic AI introductions
-- Artificial enthusiasm
-- Marketing language
-- Repetitive disclaimers
-- Excessive passive voice
-- Formulaic transitions
-- Empty conclusions
-- Unnecessary explanations of obvious concepts
-- Repeated summaries of the same facts
-
-Do not imitate the author's personal experiences without supporting evidence.
-
-First-person narration must not introduce fabricated memories, motivations, actions, or results.
-
-## 8. Evidence and Uncertainty
-
-Maintain explicit distinctions between:
-
-- Verified observations
-- Source-supported explanations
-- Engineering inferences
-- Hypotheses
-- Unverified assumptions
-- Outstanding work
-
-Never fabricate:
-
-- Commands
-- Logs
-- Benchmarks
-- Measurements
-- Test results
-- Root causes
-- Personal experiences
-- External references
-
-Do not overstate what a successful test proves.
-
-However, do not undermine every successful result with repetitive caveats.
-
-Explain each material limitation at the point where it changes the reader's interpretation.
-
-Consolidate recurring limitations into a dedicated section.
-
-Use precise language rather than defensive language.
-
-## 9. Technical Examples
-
-Prefer real commands, configurations, code, and representative logs.
-
-For each important example, establish:
-
-- What problem it addresses.
-- Why it is being used.
-- What prerequisites it assumes.
-- What successful execution looks like.
-- What failure means.
-- Whether the example was actually tested.
-
-Use copyable commands whenever possible.
-
-Avoid unexplained placeholders.
-
-Do not replace a useful procedure with a link to another document unless the article explicitly targets readers who already know that procedure.
-
-Keep extensive logs and raw investigation data in supporting documentation.
-
-## 10. Article Structure
-
-Prefer the following structure for practical engineering investigations:
-
-1. Title
-2. Busy-reader summary
-3. Context and environment
-4. Problem and unexpected behavior
-5. Investigation and evidence
-6. Working solution
-7. Verification and limitations
-8. Lessons learned and next steps
-
-Adapt the structure to the actual story.
-
-Do not create unnecessary sections merely to satisfy a template.
-
-Place the most useful technical material where readers can find it quickly.
-
-Avoid duplicating large code blocks.
-
-## 11. Technical and Editorial Review
-
-Every publication-ready article must pass two independent review perspectives.
-
-### Technical Review
-
-Verify:
-
-- Technical claims are supported.
-- Commands match the documented environment.
-- Versions and dependencies are consistent.
-- Logs and measurements are accurately represented.
-- Causal conclusions do not exceed the evidence.
-- Known limitations are disclosed.
-- Links and references are valid.
-- Reproducibility claims are justified.
-
-### Editorial Review
-
-Verify:
-
-- The central story is clear.
-- The opening answers the reader's immediate questions.
-- The article progresses naturally.
-- The author has a recognizable voice.
-- Explanations are useful rather than merely exhaustive.
-- Code examples address real reader needs.
-- Redundant caveats and repetitive passages are removed.
-- The conclusion delivers a meaningful outcome.
-
-Both reviews must pass.
-
-A technically correct article that reads like an internal incident report is not publication-ready when the requested output is a personal engineering article.
-
-## 12. Revision Strategy
-
-When editing an existing article:
-
-1. Read the entire article before changing its structure.
-2. Identify its central technical story.
-3. Identify what a reader actually needs.
-4. Preserve verified facts and evidence.
-5. Reorganize the article around the reader's understanding.
-6. Improve the voice and transitions.
-7. Consolidate redundant caveats.
-8. Add practical commands where evidence permits.
-9. Review the complete revised article.
-10. Verify that the revision has not introduced unsupported claims.
-
-Do not perform superficial sentence polishing when the article has structural problems.
-
-Do not repeatedly rewrite sections that already satisfy the acceptance criteria.
-
-## 13. Progress First, Risk Aware
-
-Make editorial decisions and proceed without unnecessary confirmation.
-
-Prefer reversible improvements over prolonged discussion.
-
-Treat the following as blockers:
-
-- Fabricated or materially unsupported technical claims
-- Unsafe or destructive instructions presented without safeguards
-- Misleading reproducibility or verification claims
-- Missing licensing or disclosure requirements that materially affect publication
-
-Treat the following as non-blocking improvements:
-
-- Minor stylistic preferences
-- Optional additional diagrams
-- Nonessential historical details
-- Further optimization of already readable prose
-- Additional background references
-
-Record non-blocking improvements for later rather than delaying a useful draft indefinitely.
-
-Do not reopen settled decisions without new evidence.
-
-## 14. Final Acceptance Criteria
-
-An article is publication-ready only when:
-
-- The reader can identify the purpose, goal, and outcome quickly.
-- The main engineering story is coherent.
-- Practical instructions match the reader's starting conditions.
-- Quick Start claims are justified.
-- Technical conclusions are supported.
-- Important uncertainty is disclosed without overwhelming the narrative.
-- The prose sounds like a knowledgeable human engineer.
-- Code blocks, references, and publication metadata are valid.
-- Both technical and editorial reviews have passed.
-
-**The final question is not only "Is this correct?"**
-
-**It is also "Would an engineer who encountered this problem find this article useful?"**
+The goal is not to produce a document that passes every check. The goal is to produce something worth reading that also passes the checks.

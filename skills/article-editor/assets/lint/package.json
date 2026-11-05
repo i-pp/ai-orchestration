@@ -1,0 +1,14 @@
+{
+  "name": "project-kiss-editorial-lint",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@textlint-ja/textlint-rule-preset-ai-writing": "1.7.0",
+    "textlint": "15.8.0",
+    "textlint-filter-rule-node-types": "1.1.0",
+    "textlint-rule-preset-japanese": "10.0.4"
+  }
+}

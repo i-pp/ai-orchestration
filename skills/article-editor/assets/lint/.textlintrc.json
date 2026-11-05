@@ -1,0 +1,59 @@
+{
+  "rules": {
+    "preset-japanese": {
+      "max-ten": false,
+      "no-doubled-conjunctive-particle-ga": false,
+      "no-doubled-conjunction": {
+        "severity": "warning"
+      },
+      "no-double-negative-ja": false,
+      "no-doubled-joshi": {
+        "min_interval": 1,
+        "severity": "warning"
+      },
+      "sentence-length": {
+        "max": 140,
+        "severity": "warning"
+      },
+      "no-dropping-the-ra": false,
+      "no-mix-dearu-desumasu": false,
+      "no-nfd": {
+        "severity": "warning"
+      },
+      "no-invalid-control-character": {
+        "severity": "warning"
+      },
+      "no-zero-width-spaces": {
+        "severity": "warning"
+      },
+      "no-kangxi-radicals": false
+    },
+    "@textlint-ja/preset-ai-writing": {
+      "no-ai-list-formatting": {
+        "severity": "warning"
+      },
+      "no-ai-hype-expressions": {
+        "severity": "warning"
+      },
+      "no-ai-emphasis-patterns": false,
+      "no-ai-colon-continuation": false,
+      "ai-tech-writing-guideline": false
+    }
+  },
+  "filters": {
+    "node-types": {
+      "nodeTypes": [
+        "Code",
+        "CodeBlock",
+        "Yaml",
+        "Toml",
+        "Json",
+        "Html",
+        "HtmlBlock",
+        "Link",
+        "Image",
+        "Definition"
+      ]
+    }
+  }
+}
