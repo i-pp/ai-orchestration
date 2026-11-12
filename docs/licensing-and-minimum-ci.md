@@ -1,8 +1,8 @@
 # Licensing and minimum CI
 
 Project-authored code and documentation in this repository are covered by the
-root [LICENSE](../LICENSE), including files without an individual source header.
-[NOTICE](../NOTICE) identifies the project attribution. Existing third-party
+root [LICENSE](https://github.com/i-pp/ai-orchestration/blob/main/LICENSE), including files without an individual source header.
+[NOTICE](https://github.com/i-pp/ai-orchestration/blob/main/NOTICE) identifies the project attribution. Existing third-party
 notices remain authoritative for their respective material. Dependencies are
 not relicensed or bundled by this change. Protocol names, external contracts,
 and quoted or independently licensed material are not claimed as project-owned.
