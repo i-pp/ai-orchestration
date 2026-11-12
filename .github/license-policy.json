@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "licenses": {
+    "LicenseRef-KOL-v1": {
+      "path": "LICENSE",
+      "sha256": "df951a913ed6f5fe319b9e1b1a3cc2b6e396ea65b9d1687b9f735bd8f117ea9c"
+    }
+  },
+  "notice": {
+    "path": "NOTICE",
+    "required_text": [
+      "I-plusplus Inc."
+    ]
+  },
+  "rules": [
+    {
+      "paths": [
+        ".agents/skills/documentation-architect/SKILL.md",
+        ".agents/skills/documentation-reviewer/SKILL.md",
+        ".agents/skills/readme-maintainer/SKILL.md",
+        ".agents/skills/technical-writer/SKILL.md",
+        ".codex/agents/technical-documentation.toml",
+        ".github/workflows/documentation-ci.yml",
+        ".github/workflows/editorial-tools.yml",
+        ".gitignore",
+        "AGENTS.md",
+        "LICENSE",
+        "NOTICE",
+        "README.md",
+        "README_jp.md",
+        "agents/README.md",
+        "docs/.gitignore",
+        "docs/.markdownlint-cli2.jsonc",
+        "docs/.vitepress/config.mts",
+        "docs/ai/documentation-inventory.md",
+        "docs/ai/documentation-policy.md",
+        "docs/ai/documentation-policy_jp.md",
+        "docs/ai/editorial-branching.md",
+        "docs/ai/editorial-policy.md",
+        "docs/ai/example/after_ryzen-ai-max-395-ubuntu-2604-npu-ja.md",
+        "docs/ai/example/before_ryzen-ai-max-395-ubuntu-2604-npu-ja.md",
+        "docs/ai/history/editorial-policy-v1.0.md",
+        "docs/ai/history/pre-v2-associations.json",
+        "docs/ai/orchestration.md",
+        "docs/ai/policies.md",
+        "docs/index.md",
+        "docs/licensing-and-minimum-ci.md",
+        "docs/package.json",
+        "policies/communication-quality.md",
+        "policies/editorial.md",
+        "scripts/check_markdown_links.py",
+        "skills/README.md",
+        "skills/article-editor/SKILL.md",
+        "skills/article-editor/assets/lint/.textlintrc.json",
+        "skills/article-editor/assets/lint/.vale.ini",
+        "skills/article-editor/assets/lint/package.json",
+        "skills/article-editor/assets/lint/styles/config/vocabularies/Project/accept.txt",
+        "skills/article-editor/assets/lint/styles/config/vocabularies/Project/reject.txt",
+        "skills/article-editor/references/candidates.md",
+        "skills/article-editor/references/editorial.md",
+        "skills/article-editor/references/engineering-example.json",
+        "skills/article-editor/references/engineering-example.md",
+        "skills/article-editor/references/faces.md",
+        "skills/article-editor/references/technical-review.md",
+        "skills/article-editor/references/tools.md",
+        "skills/article-editor/references/voice-style.md",
+        "skills/article-editor/scripts/check.py",
+        "skills/article-editor/scripts/faces.py",
+        "skills/article-editor/scripts/install_tools.py",
+        "skills/article-editor/scripts/review.py",
+        "skills/article-editor/scripts/test_editorial_tools.py",
+        "skills/article-editor/scripts/test_faces.py",
+        "skills/technical-writing/SKILL.md",
+        "skills/technical-writing/scripts/load_policy.py",
+        "skills/technical-writing/scripts/test_load_policy.py",
+        ".github/license-policy.json"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "root"
+    },
+    {
+      "paths": [
+        ".github/workflows/minimum-ci.yml",
+        "docs/license-evidence-scope.md"
+      ],
+      "kind": "first_party",
+      "license": "LicenseRef-KOL-v1",
+      "header": "spdx",
+      "header_markers": [
+        "KISS Open License Version 1.0 (KOL-v1)",
+        "SPDX-FileCopyrightText: 2026 I-plusplus Inc.",
+        "SPDX-License-Identifier: LicenseRef-KOL-v1",
+        "Distributed modifications must be identified",
+        "WITHOUT WARRANTY OR LIABILITY",
+        "See the accompanying LICENSE file"
+      ]
+    },
+    {
+      "paths": [
+        "docs/package-lock.json",
+        "skills/article-editor/assets/lint/package-lock.json"
+      ],
+      "kind": "generated_metadata",
+      "format": "json",
+      "evidence": "docs/license-evidence-scope.md",
+      "reason": "Generated dependency or protocol inventory; no dependency implementation bundled",
+      "origin": "npm"
+    }
+  ]
+}
