@@ -27,7 +27,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Repository", link: "https://github.com/i-pp/ai-orchestration" },
-      { text: "日本語", link: "/ai/documentation-policy_jp" },
+      { text: "\u65e5\u672c\u8a9e", link: "/ai/documentation-policy_jp" },
     ],
     sidebar: [
       { text: "Overview", link: "/" },

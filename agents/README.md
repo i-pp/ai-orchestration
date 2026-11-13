@@ -13,6 +13,28 @@ Agent responsibilities define task ownership, not additional permissions. Apply 
 
 Give each delegated task a defined objective, scope, allowed inputs and actions, and expected evidence. Keep authority with the role or user that holds it. Review delegated output before integration, and do not use delegation to bypass permissions, escalation, or validation.
 
+## Development assignments
+
+These assignments can be selected within Codex or another verified executor. They are responsibilities, not additional providers or permissions. The parent chooses the smallest useful set and can assign multiple workers at one implementation level when ownership is disjoint.
+
+| Assignment | Select when | Expected result |
+| --- | --- | --- |
+| Orchestrator | Advanced, cross-project, or parallel work needs a dependency/ownership plan. | A bounded DAG, role mix, model settings, budgets, and completion evidence for the parent to approve within its existing authority. |
+| Quick Implementer | A mechanical or narrow low-risk change has explicit acceptance criteria. | A minimal complete change and focused checks, or evidence that the task needs a higher level. |
+| Implementer | A bounded feature or fix has a known design and contract. | A scoped implementation, regressions, and an honest account of unverified behavior. |
+| Advanced Implementer | Contracts, concurrency, migrations, or cross-module reasoning require deeper design. | An implementation with failure/recovery analysis and evidence for consequential choices. |
+| Correctness Reviewer | Any nontrivial implementation needs independent review. | Introduced defects and compatibility risks tied to code and trigger conditions. |
+| Test Reviewer | Test adequacy or boundary coverage needs independent judgment. | Missing scenarios, false positives, flakiness, and evidence still required. |
+| Security Reviewer | Authentication, trust, data, permissions, or publication boundaries change. | Evidence-backed security/privacy findings without expanding access. |
+| Performance Reviewer | Algorithms, concurrency, memory, or resource costs materially change. | Concrete affected paths and measurement limits, not invented benchmarks. |
+| Documentation Reviewer | Product docs, commands, navigation, or translations change. | Accuracy, usability, links, feature-status, and preservation findings. |
+| Verifier | The candidate has been integrated. | Independent acceptance checks derived from original requirements and the integrated revision. |
+| Researcher | A bounded unknown can be resolved before or alongside implementation. | Primary-source evidence with facts, hypotheses, and unknowns separated. |
+
+The coordinating parent remains the dispatcher and integrator. An Orchestrator assignment plans and recommends; workers and reviewers do not launch their own subteams by default. A reviewer does not edit the candidate it reviews. The independent Verifier checks the integrated result rather than treating an implementer's test pass as acceptance.
+
+The [architecture](../docs/ai/orchestration.md#explicit-model-selection) defines explicit model selection and fallback boundaries. Runtime profile files and supported tool envelopes must carry the selected model and reasoning effort; a role name alone does not choose a model. Use [technical documentation policy](../docs/ai/documentation-policy.md) for documentation assignments and the separate editorial assignments below for articles. Documentation Reviewer must not duplicate or replace the article Editor or Technical Reviewer.
+
 ## Editorial assignments
 
 Reuse Codex or a bounded Local LLM assignment as Writer (draft), Editor (independent editorial review of reader value, purpose, reasoning and supported author voice), or Technical Reviewer (evidence and correctness). These are media-independent responsibilities, not new execution agents or permissions. Assign Editor and Technical Reviewer independently of the Writer and record who checked what. Follow [editorial policy](../policies/editorial.md); keep provider operations in the target repository.

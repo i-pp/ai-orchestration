@@ -1,5 +1,7 @@
 # AI Orchestration
 
+> This Japanese translation predates the current parallel-agent profile. Use the [canonical English README](README.md) for current features and instructions.
+
 ## 概要
 
 AI Orchestrationは、複数のリポジトリで作業する際のagentの役割、委譲、エスカレーション、ガバナンスの共通ルールを提供します。まず[agentの役割](agents/README.md)と[実行ポリシー](docs/ai/policies.md)を確認し、各runtimeでの読込み・適用方法を検証してください。本repoは作業の調整ルールを定め、タスク実行は実装しません。
