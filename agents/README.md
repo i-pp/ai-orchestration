@@ -33,7 +33,7 @@ These assignments can be selected within Codex or another verified executor. The
 
 The coordinating parent remains the dispatcher and integrator. An Orchestrator assignment plans and recommends; workers and reviewers do not launch their own subteams by default. A reviewer does not edit the candidate it reviews. The independent Verifier checks the integrated result rather than treating an implementer's test pass as acceptance.
 
-The [architecture](../docs/ai/orchestration.md#explicit-model-selection) defines explicit model selection and fallback boundaries. Runtime profile files and supported tool envelopes must carry the selected model and reasoning effort; a role name alone does not choose a model. Use [technical documentation policy](../docs/ai/documentation-policy.md) for documentation assignments and the separate editorial assignments below for articles. Documentation Reviewer must not duplicate or replace the article Editor or Technical Reviewer.
+For model selection, effort, and fallback rules, read the [canonical model-selection policy](../docs/ai/orchestration.md#explicit-model-selection). Use [technical documentation policy](../docs/ai/documentation-policy.md) for documentation assignments and the separate editorial assignments below for articles. Documentation Reviewer must not duplicate or replace the article Editor or Technical Reviewer.
 
 ## Editorial assignments
 

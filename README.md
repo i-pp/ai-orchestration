@@ -15,7 +15,7 @@ There is no package installation step. Runtime projects should reference the can
 
 ## Usage
 
-Start with the [agent role guide](agents/README.md) when assigning work, and the [execution policies](docs/ai/policies.md) before delegating or escalating. Runtime-specific commands and behavior belong in `agent-orchestrator`. For multi-part engineering work, use the [parallel development plan](docs/ai/orchestration.md#parallel-development-plan) and [selectable development assignments](agents/README.md#development-assignments). Every new assignment records its model and reasoning effort; the default development profile is GPT-6.1 Sol MAX.
+Start with the [agent role guide](agents/README.md) when assigning work, and the [execution policies](docs/ai/policies.md) before delegating or escalating. Runtime-specific commands and behavior belong in `agent-orchestrator`. For multi-part engineering work, use the [parallel development plan](docs/ai/orchestration.md#parallel-development-plan) and [selectable development assignments](agents/README.md#development-assignments). Use the [canonical model-selection policy](docs/ai/orchestration.md#explicit-model-selection) for model identifiers, reasoning effort, and fallback rules.
 
 ## Advanced Usage
 
