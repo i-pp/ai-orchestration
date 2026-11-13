@@ -39,7 +39,7 @@ A worker is a leaf by default. It returns a result or a proposed subdivision to 
 
 ## Explicit model selection
 
-Record both the model identifier and `model_reasoning_effort` before new model work. Choose them from the assignment's complexity, uncertainty, and cost of error; do not assign every role the largest model or maximum effort. A task's explicit model or effort requirement takes precedence.
+Record both the model identifier and reasoning effort before new model work. Map these semantic settings to the selected executor's supported interface in its runtime integration. Choose them from the assignment's complexity, uncertainty, and cost of error; do not assign every role the largest model or maximum effort. A task's explicit model or effort requirement takes precedence.
 
 Use these starting defaults for the development assignments in the [role guide](https://github.com/i-pp/ai-orchestration/blob/main/agents/README.md). They are selection policy, not a claim that a provider currently offers those settings.
 
