@@ -20,6 +20,7 @@
         ".agents/skills/readme-maintainer/SKILL.md",
         ".agents/skills/technical-writer/SKILL.md",
         ".codex/agents/technical-documentation.toml",
+        ".github/license-policy.json",
         ".github/workflows/documentation-ci.yml",
         ".github/workflows/editorial-tools.yml",
         ".gitignore",
@@ -32,6 +33,7 @@
         "docs/.gitignore",
         "docs/.markdownlint-cli2.jsonc",
         "docs/.vitepress/config.mts",
+        "docs/ai/branch-reconciliation.md",
         "docs/ai/documentation-inventory.md",
         "docs/ai/documentation-policy.md",
         "docs/ai/documentation-policy_jp.md",
@@ -72,8 +74,7 @@
         "skills/article-editor/scripts/test_faces.py",
         "skills/technical-writing/SKILL.md",
         "skills/technical-writing/scripts/load_policy.py",
-        "skills/technical-writing/scripts/test_load_policy.py",
-        ".github/license-policy.json"
+        "skills/technical-writing/scripts/test_load_policy.py"
       ],
       "kind": "first_party",
       "license": "LicenseRef-KOL-v1",

@@ -121,7 +121,7 @@ def aggregate_findings(rows):
     merged={}
     for row in rows:
         if row.get('category')=='AI_HYPE' and row.get('span_text'):
-            key=('AI_HYPE',row.get('line'),row.get('column'),row['span_text'].removesuffix('な'))
+            key=('AI_HYPE',row.get('line'),row.get('column'),row['span_text'].removesuffix('\u306a'))
         else:key=('exact',row.get('line'),row.get('column'),row.get('severity'),re.sub(r'\s+',' ',row['message']).strip())
         source={k:row.get(k) for k in ['tool','rule','message','severity','original_severity','span_text']}
         if key not in merged:merged[key]={**row,'sources':[]}

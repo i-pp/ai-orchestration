@@ -22,17 +22,17 @@ class EditorialTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);binary=root/'.tools/noslop-v26.10.114/noslop';binary.parent.mkdir(parents=True);binary.write_bytes(b'Fixture')
             with patch.object(c,'CONFIG',root),patch.object(c.Path,'read_bytes',inaccessible),patch.object(c.subprocess,'run') as run:
-                result=c.run_noslop('公開検証文。','ja',True)
+                result=c.run_noslop('\u516c\u958b\u691c\u8a3c\u6587\u3002','ja',True)
         self.assertEqual(result['status'],'TOOL_ERROR');self.assertFalse(result['executed']);run.assert_not_called()
     def test_native_markdown_preserves_prose_after_inline_code(self):
-        for lang,prose in [('ja','これは革命的な技術です。'),('en','The the mispeling word.')]:
+        for lang,prose in [('ja','\u3053\u308c\u306f\u9769\u547d\u7684\u306a\u6280\u8853\u3067\u3059\u3002'),('en','The the mispeling word.')]:
             with tempfile.TemporaryDirectory() as d:
                 p=Path(d)/'fixture.md';p.write_text('`code` '+prose+'\n')
                 result=c.check(p,lang)
             self.assertEqual(result['tools'][0]['status'],'COMPLETED');self.assertTrue(result['findings'])
     def test_private_link_and_metadata_exclusions_do_not_hide_following_prose(self):
         with tempfile.TemporaryDirectory() as d:
-            p=Path(d)/'fixture.md';p.write_text('---\ntitle: 革命的な\n---\n[革命的な](https://example.test/a) これは革命的な技術です。\n')
+            p=Path(d)/'fixture.md';p.write_text('---\ntitle: \u9769\u547d\u7684\u306a\n---\n[\u9769\u547d\u7684\u306a](https://example.test/a) \u3053\u308c\u306f\u9769\u547d\u7684\u306a\u6280\u8853\u3067\u3059\u3002\n')
             report=c.check(p,'ja')
             hype=[f for f in report['findings'] if (f.get('category')=='AI_HYPE')]
             self.assertEqual(len(hype),1);self.assertEqual((hype[0]['line'],hype[0]['column']),(4,35))
@@ -43,7 +43,7 @@ class EditorialTests(unittest.TestCase):
         run.assert_not_called()
     def test_noslop_requires_explicit_matching_sanitized_copy(self):
         with tempfile.TemporaryDirectory() as d:
-            p=Path(d)/'fixture.md';p.write_text('公開検証文。')
+            p=Path(d)/'fixture.md';p.write_text('\u516c\u958b\u691c\u8a3c\u6587\u3002')
             with patch.object(c,'run_noslop') as run:
                 with self.assertRaises(ValueError):c.check(p,'ja',noslop=True)
             run.assert_not_called()
@@ -51,19 +51,19 @@ class EditorialTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             root=Path(d);binary=root/'.tools/noslop-v26.10.114/noslop';binary.parent.mkdir(parents=True);binary.write_bytes(b'Untrusted fixture')
             with patch.object(c,'CONFIG',root),patch.object(c.subprocess,'run') as run:
-                result=c.run_noslop('公開検証文。','ja',True)
+                result=c.run_noslop('\u516c\u958b\u691c\u8a3c\u6587\u3002','ja',True)
             self.assertEqual(result['status'],'DIGEST_MISMATCH');self.assertFalse(result['executed']);run.assert_not_called()
     def test_unicode_position_and_semantic_merge_keep_both_ranges(self):
-        line,col,span=c.textlint_position('🧪革命的な',{'line':1,'column':3,'loc':{'end':{'line':1,'column':7}}})
-        self.assertEqual((line,col,span),(1,2,'革命的な'))
+        line,col,span=c.textlint_position('\U0001f9ea\u9769\u547d\u7684\u306a',{'line':1,'column':3,'loc':{'end':{'line':1,'column':7}}})
+        self.assertEqual((line,col,span),(1,2,'\u9769\u547d\u7684\u306a'))
         a={'tool':'textlint','rule':'ai-hype','category':'AI_HYPE','line':line,'column':col,'span_text':span,'message':'Candidate A','severity':'MINOR'}
-        b=dict(a,tool='noslop',rule='P19',span_text='革命的',message='Candidate B',original_severity='info')
-        result=c.aggregate_findings([a,b,dict(b,span_text='別語')]);self.assertEqual(len(result),2)
-        self.assertEqual({x['span_text'] for x in result[0]['sources']},{'革命的な','革命的'})
+        b=dict(a,tool='noslop',rule='P19',span_text='\u9769\u547d\u7684',message='Candidate B',original_severity='info')
+        result=c.aggregate_findings([a,b,dict(b,span_text='\u5225\u8a9e')]);self.assertEqual(len(result),2)
+        self.assertEqual({x['span_text'] for x in result[0]['sources']},{'\u9769\u547d\u7684\u306a','\u9769\u547d\u7684'})
     @unittest.skipUnless((c.CONFIG/'.tools/noslop-v26.10.114/noslop').is_file(),'Optional noslop is not installed in this environment')
     def test_real_noslop_local_merge_and_markdown_protection(self):
         with tempfile.TemporaryDirectory() as d:
-            p=Path(d)/'fixture.md';p.write_text('これは革命的な技術です。\n\n- **重要**: すべての問題を完全に解決します。\n\n```text\nこれは革命的な技術です。\n```\n')
+            p=Path(d)/'fixture.md';p.write_text('\u3053\u308c\u306f\u9769\u547d\u7684\u306a\u6280\u8853\u3067\u3059\u3002\n\n- **\u91cd\u8981**: \u3059\u3079\u3066\u306e\u554f\u984c\u3092\u5b8c\u5168\u306b\u89e3\u6c7a\u3057\u307e\u3059\u3002\n\n```text\n\u3053\u308c\u306f\u9769\u547d\u7684\u306a\u6280\u8853\u3067\u3059\u3002\n```\n')
             before=p.read_bytes();report=c.check(p,'ja',noslop=True,sanitized_sha256=hashlib.sha256(before).hexdigest())
             self.assertEqual(report['tools'][2]['status'],'COMPLETED')
             self.assertEqual(len(report['tools'][0]['findings']),3);self.assertEqual(len(report['tools'][2]['findings']),1)
@@ -76,7 +76,7 @@ class EditorialTests(unittest.TestCase):
         result=c.aggregate_findings([a,b,other]);self.assertEqual(len(result),2)
         self.assertEqual(len(result[0]['sources']),2);self.assertEqual(len(result[1]['sources']),1)
     def test_real_ai_writing_rule_is_advisory(self):
-        result=c.run_tool('textlint','これは革命的な技術です。\n\n- **重要**: 問題を完全に解決します。\n')
+        result=c.run_tool('textlint','\u3053\u308c\u306f\u9769\u547d\u7684\u306a\u6280\u8853\u3067\u3059\u3002\n\n- **\u91cd\u8981**: \u554f\u984c\u3092\u5b8c\u5168\u306b\u89e3\u6c7a\u3057\u307e\u3059\u3002\n')
         self.assertEqual(result['status'],'COMPLETED')
         self.assertTrue(any('no-ai-hype-expressions' in f['rule'] for f in result['findings']))
         self.assertTrue(all(f['severity']=='MINOR' for f in result['findings']))
@@ -160,7 +160,7 @@ class EditorialTests(unittest.TestCase):
             p.write_text('Changed')
             with self.assertRaises(ValueError):r.final_state(p,m,v)
     def test_real_tools_detect_errors_and_exclude_protected_content(self):
-        for lang,word in [('ja','ここでは試験では不具合を調べた。'),('en','The the mispeling word.')]:
+        for lang,word in [('ja','\u3053\u3053\u3067\u306f\u8a66\u9a13\u3067\u306f\u4e0d\u5177\u5408\u3092\u8abf\u3079\u305f\u3002'),('en','The the mispeling word.')]:
             tool='textlint' if lang=='ja' else 'vale'
             live=c.run_tool(tool,word+'\n')
             self.assertEqual(live['status'],'COMPLETED');self.assertTrue(live['executed']);self.assertTrue(live['findings'])
