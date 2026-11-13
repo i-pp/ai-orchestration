@@ -33,7 +33,7 @@ The coordinating parent owns the user's outcome, permissions, scheduling, integr
 4. Select the implementation level from the [role guide](https://github.com/i-pp/ai-orchestration/blob/main/agents/README.md). Parallel writers use separate clean worktrees and disjoint ownership. Use research and focused reviews in parallel when their inputs are ready.
 5. Review the fixed candidate independently. Correctness and test adequacy are separate perspectives; add security, performance, or documentation review when the change crosses those boundaries. Editorial review remains a separate article workflow.
 6. Collect the artifacts, inspect the actual diff and evidence, and integrate in a controlled worktree. Run an independent Verifier against the original requirements and the integrated revision.
-7. Check the exact remote head and required CI before an authorized merge. Preserve branch recovery references and do not delete dirty, uncertain, or unmerged work as routine cleanup.
+7. Before an authorized merge, verify the exact remote head, required CI, and completion of configured asynchronous repository reviews for that same head. An empty review list while a review is pending is not completion. Resolve substantive findings or record an explicit reasoned disposition, then recheck after any head change. Preserve branch recovery references and do not delete dirty, uncertain, or unmerged work as routine cleanup.
 
 A worker is a leaf by default. It returns a result or a proposed subdivision to its parent instead of recursively expanding the team. The parent can then select another role within the same recorded budget. A role or worktree is an operational boundary, not an OS sandbox or new approval authority.
 
